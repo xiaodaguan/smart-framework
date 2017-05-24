@@ -20,11 +20,11 @@ public final class ClassUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
 
-    private static ClassLoader getClassLoader() {
+    public static ClassLoader getClassLoader() {
         return Thread.currentThread().getContextClassLoader();
     }
 
-    private static Class<?> loadClass(String className, boolean isInitialized) {
+    public static Class<?> loadClass(String className, boolean isInitialized) {
         Class<?> cls;
         try {
             cls = Class.forName(className, isInitialized, getClassLoader());
@@ -36,6 +36,10 @@ public final class ClassUtil {
         return cls;
     }
 
+
+    public static Class<?> loadClass(String className) {
+        return loadClass(className,true);
+    }
 
     public static Set<Class<?>> getClassSet(String packageName) {
         Set<Class<?>> classSet = new HashSet<Class<?>>();
@@ -109,4 +113,5 @@ public final class ClassUtil {
         Class<?> cls = loadClass(className, false);
         classSet.add(cls);
     }
+
 }
