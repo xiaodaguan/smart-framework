@@ -11,7 +11,7 @@ public final class StringUtil {
         if(str!=null){
             str = str.trim();
         }
-        return StringUtil.isEmpty(str);
+        return StringUtils.isEmpty(str);
     }
 
     public static boolean isNotEmpty(String str){
